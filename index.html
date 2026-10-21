@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tooo Much Moxie — Official Home</title>
+<meta name="description" content="Tooo Much Moxie: the podcast, the music, and The Black Messiah. Watch the show, buy the albums direct, join the Founding Listeners.">
+<style>
+  :root { --bg:#0c0b09; --panel:#161310; --panel2:#1e1a15; --gold:#c9a227; --gold2:#e8c766; --bronze:#a67c44; --text:#f2ead8; --muted:#b8ab90; --line:#2c2619; }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { background:var(--bg); color:var(--text); font-family:Verdana, Geneva, sans-serif; line-height:1.55; }
+  a { color:var(--gold2); }
+  header { position:sticky; top:0; background:rgba(12,11,9,.94); border-bottom:1px solid var(--line); z-index:10; }
+  nav { max-width:1080px; margin:0 auto; padding:14px 20px; display:flex; align-items:center; justify-content:space-between; gap:16px; flex-wrap:wrap; }
+  .brand { font-family:Georgia, serif; font-size:22px; letter-spacing:1px; color:var(--gold); text-decoration:none; }
+  .navlinks { display:flex; gap:18px; flex-wrap:wrap; }
+  .navlinks a { color:var(--text); text-decoration:none; font-size:13px; letter-spacing:1.5px; text-transform:uppercase; }
+  .navlinks a:hover { color:var(--gold2); }
+  main { max-width:1080px; margin:0 auto; padding:0 20px 60px; }
+  .hero { text-align:center; padding:56px 0 36px; }
+  .hero h1 { font-family:Georgia, serif; font-size:46px; line-height:1.15; color:var(--gold); }
+  .hero p { color:var(--muted); max-width:640px; margin:16px auto 0; font-size:16px; }
+  .hero .cta { margin-top:26px; display:flex; gap:12px; justify-content:center; flex-wrap:wrap; }
+  .btn { display:inline-block; padding:12px 22px; border-radius:6px; text-decoration:none; font-size:14px; letter-spacing:.5px; border:1px solid var(--gold); }
+  .btn.gold { background:var(--gold); color:#14100a; font-weight:bold; }
+  .btn.ghost { color:var(--gold2); background:transparent; }
+  .btn:hover { filter:brightness(1.12); }
+  section { margin-top:56px; }
+  h2 { font-family:Georgia, serif; font-size:30px; color:var(--gold); border-bottom:1px solid var(--line); padding-bottom:10px; margin-bottom:20px; }
+  .video-grid { display:grid; grid-template-columns:1fr; gap:22px; }
+  @media (min-width:760px){ .video-grid.two { grid-template-columns:1fr 1fr; } }
+  .video-card { background:var(--panel); border:1px solid var(--line); border-radius:10px; overflow:hidden; }
+  .video-card iframe { width:100%; aspect-ratio:16/9; border:0; display:block; }
+  .video-card .vc-body { padding:14px 16px; }
+  .video-card h3 { font-family:Georgia, serif; font-size:18px; color:var(--text); }
+  .video-card p { color:var(--muted); font-size:13px; margin-top:4px; }
+  .trilogy { background:linear-gradient(135deg, var(--panel2), var(--panel)); border:1px solid var(--gold); border-radius:12px; padding:26px; text-align:center; margin-bottom:28px; }
+  .trilogy h3 { font-family:Georgia, serif; font-size:28px; color:var(--gold); }
+  .trilogy p { color:var(--muted); margin:10px auto 18px; max-width:560px; font-size:14px; }
+  .album { background:var(--panel); border:1px solid var(--line); border-radius:12px; padding:22px; margin-bottom:26px; }
+  .album-head { display:flex; justify-content:space-between; gap:14px; flex-wrap:wrap; align-items:flex-start; }
+  .album h3 { font-family:Georgia, serif; font-size:24px; color:var(--text); }
+  .album-meta { color:var(--bronze); font-size:13px; margin-top:2px; }
+  .album-actions { display:flex; gap:10px; flex-wrap:wrap; }
+  .album-blurb { color:var(--muted); font-size:14px; margin:12px 0 16px; }
+  .songs { border-top:1px solid var(--line); }
+  .song { display:flex; justify-content:space-between; align-items:center; gap:12px; padding:9px 2px; border-bottom:1px solid var(--line); }
+  .song-name { font-size:14px; }
+  .fav { color:var(--gold); font-size:11px; letter-spacing:1px; text-transform:uppercase; margin-left:8px; }
+  .buy { color:#14100a; background:var(--gold); text-decoration:none; font-size:12px; font-weight:bold; padding:6px 12px; border-radius:5px; white-space:nowrap; }
+  .buy:hover { background:var(--gold2); }
+  .messiah { background:var(--panel); border:1px solid var(--line); border-radius:12px; padding:26px; }
+  .messiah .pitch { font-family:Georgia, serif; font-size:20px; color:var(--gold2); }
+  .messiah p { color:var(--muted); font-size:14px; margin-top:10px; max-width:700px; }
+  .countdowns { display:grid; grid-template-columns:repeat(auto-fit, minmax(200px, 1fr)); gap:14px; margin:20px 0; }
+  .cd { background:var(--panel2); border:1px solid var(--line); border-radius:10px; padding:16px; text-align:center; }
+  .cd .cd-label { font-size:12px; letter-spacing:1.5px; text-transform:uppercase; color:var(--bronze); }
+  .cd .cd-title { font-family:Georgia, serif; font-size:17px; margin:6px 0; }
+  .cd .cd-days { font-size:26px; color:var(--gold); font-weight:bold; }
+  .cd .cd-date { font-size:12px; color:var(--muted); }
+  .linkcards { display:grid; grid-template-columns:repeat(auto-fit, minmax(230px, 1fr)); gap:16px; }
+  .linkcard { background:var(--panel); border:1px solid var(--line); border-radius:10px; padding:20px; text-align:center; }
+  .linkcard h3 { font-family:Georgia, serif; font-size:19px; margin-bottom:8px; }
+  .linkcard p { color:var(--muted); font-size:13px; margin-bottom:14px; }
+  .join { text-align:center; background:var(--panel); border:1px solid var(--gold); border-radius:12px; padding:30px 22px; }
+  .join h2 { border:0; margin-bottom:8px; }
+  .join p { color:var(--muted); max-width:560px; margin:0 auto 18px; font-size:14px; }
+  footer { border-top:1px solid var(--line); margin-top:64px; padding:28px 20px; text-align:center; color:var(--muted); font-size:13px; }
+  footer .socials { display:flex; gap:18px; justify-content:center; flex-wrap:wrap; margin-bottom:14px; }
+  footer .socials a { color:var(--gold2); text-decoration:none; letter-spacing:1px; }
+</style>
+</head>
+<body>
+<header>
+  <nav>
+    <a class="brand" href="#top">TOOO MUCH MOXIE</a>
+    <div class="navlinks">
+      <a href="#watch">Watch</a>
+      <a href="#music">Music</a>
+      <a href="#messiah">Black Messiah</a>
+      <a href="#playlists">Playlists</a>
+      <a href="#join">Join</a>
+    </div>
+  </nav>
+</header>
+<main id="top">
+  <div class="hero">
+    <h1>Tooo Much Moxie</h1>
+    <p>The podcast that says what others won&rsquo;t, and the music that proves it. Watch the show, buy the albums direct from the artist, and be here when The Black Messiah arrives.</p>
+    <div class="cta">
+      <a class="btn gold" href="#watch">Watch the Show</a>
+      <a class="btn ghost" href="#music">Buy the Music</a>
+    </div>
+  </div>
+
+  <section id="watch">
+    <h2>Watch</h2>
+    <div class="video-grid">
+      <div class="video-card">
+        <iframe src="https://www.youtube-nocookie.com/embed/7dusVkMTp0c" title="FBA Business: Who Speaks for Us — Full Episode" allowfullscreen loading="lazy"></iframe>
+        <div class="vc-body"><h3>FBA Business: Who Speaks for Us — and What Are We Getting?</h3><p>The full episode. Who represents us, who profits, and what we build next.</p></div>
+      </div>
+    </div>
+    <div class="video-grid two" style="margin-top:22px">
+      <div class="video-card">
+        <iframe src="https://www.youtube-nocookie.com/embed/U6vsQzdl4Tg" title="Our Story, Their Roles — Full Episode" allowfullscreen loading="lazy"></iframe>
+        <div class="vc-body"><h3>Our Story, Their Roles</h3><p>The full episode that started the clip storm.</p></div>
+      </div>
+      <div class="video-card">
+        <iframe src="https://www.youtube-nocookie.com/embed/I5iJ0SNBj0M" title="Moxie Mae Take #013 — Cite Your Source" allowfullscreen loading="lazy"></iframe>
+        <div class="vc-body"><h3>Moxie Mae Takes — Cite Your Source</h3><p>Mae brings the receipts on the reparations panel. His positions, her proof.</p></div>
+      </div>
+    </div>
+    <p style="text-align:center; margin-top:22px"><a class="btn gold" href="https://www.youtube.com/channel/UCeSMZ3FCAj6o779u-AHVpQg" target="_blank" rel="noopener">Tooo Much Moxie on YouTube</a></p>
+  </section>
+
+  <section id="music">
+    <h2>Listen / Buy — Direct From the Artist</h2>
+    <div class="trilogy">
+      <h3>THE TRILOGY</h3>
+      <p>All three albums. All 49 tracks. One download, direct from Tooo Much Moxie — no middleman, and your purchase puts you on the Founding Listeners list.</p>
+      <a class="btn gold" href="https://moxietide.gumroad.com/l/rmlavm" target="_blank" rel="noopener">Get the Trilogy — $25</a>
+    </div>
+    
+    <article class="album">
+      <div class="album-head">
+        <div>
+          <h3>FBA Only: Black and Unapologetic</h3>
+          <p class="album-meta">2024 &middot; 14 tracks</p>
+        </div>
+        <div class="album-actions">
+          <a class="btn gold" href="https://moxietide.gumroad.com/l/mpdpnv" target="_blank" rel="noopener">Full Album $10</a>
+          <a class="btn ghost" href="https://open.spotify.com/album/1Ci4vAihDsd9A7SxOWA6p0" target="_blank" rel="noopener">Spotify</a>
+        </div>
+      </div>
+      <p class="album-blurb">The foundation. Fourteen tracks of Black American pride, history, and economic self-determination — unapologetic from the first bar.</p>
+      <div class="songs"><div class="song"><span class="song-name">Intro: Running the Game</span><a class="buy" href="https://moxietide.gumroad.com/l/chmlun" target="_blank" rel="noopener">Buy $1.29</a></div><div class="song"><span class="song-name">Freedom State of Mind</span><a class="buy" href="https://moxietide.gumroad.com/l/iazepw" target="_blank" rel="noopener">Buy $1.29</a></div><div class="song"><span class="song-name">Snitching and Telling</span><a class="buy" href="https://moxietide.gumroad.com/l/sofdlr" target="_blank" rel="noopener">Buy $1.29</a></div><div class="song"><span class="song-name">Voices of Liberation (Remastered)</span><a class="buy" href="https://moxietide.gumroad.com/l/zakzm" target="_blank" rel="noopener">Buy $1.29</a></div><div class="song"><span class="song-name">Build the Future</span><a class="buy" href="https://moxietide.gumroad.com/l/nusvqm" target="_blank" rel="noopener">Buy $1.29</a></div><div class="song"><span class="song-name">Do It For The Culture</span><a class="buy" href="https://moxietide.gumroad.com/l/liavbh" target="_blank" rel="noopener">Buy $1.29</a></div><div class="song"><span class="song-name">FBA Only Black and Unapologetic</span><a class="buy" href="https://moxietide.gumroad.com/l/emrfoq" target="_blank" rel="noopener">Buy $1.29</a></div><div class="song"><span class="song-name">The Night Before Christmas FBA Vibe</span><a class="buy" href="https://moxietide.gumroad.com/l/xjhgs" target="_blank" rel="noopener">Buy $1.29</a></div><div class="song"><span class="song-name">Chariots of Freedom</span><a class="buy" href="https://moxietide.gumroad.com/l/lvhbvi" target="_blank" rel="noopener">Buy $1.29</a></div><div class="song"><span class="song-name">Squared and Bougie</span><a class="buy" href="https://moxietide.gumroad.com/l/ztyivr" target="_blank" rel="noopener">Buy $1.29</a></div><div class="song"><span class="song-name">Reparations Anthem</span><a class="buy" href="https://moxietide.gumroad.com/l/wtmwrf" target="_blank" rel="noopener">Buy $1.29</a></div><div class="song"><span class="song-name">Built This City</span><a class="buy" href="https://moxietide.gumroad.com/l/lhqstp" target="_blank" rel="noopener">Buy $1.29</a></div><div class="song"><span class="song-name">Soil Born Royalty</span><a class="buy" href="https://moxietide.gumroad.com/l/axlkr" target="_blank" rel="noopener">Buy $1.29</a></div><div class="song"><span class="song-name">Forgotten Founders</span><a class="buy" href="https://moxietide.gumroad.com/l/kcpdmu" target="_blank" rel="noopener">Buy $1.29</a></div></div>
+    </article>
+
+    <article class="album">
+      <div class="album-head">
+        <div>
+          <h3>Too Much For TV</h3>
+          <p class="album-meta">2025 &middot; 17 tracks</p>
+        </div>
+        <div class="album-actions">
+          <a class="btn gold" href="https://moxietide.gumroad.com/l/lkuhhf" target="_blank" rel="noopener">Full Album $10</a>
+          <a class="btn ghost" href="https://open.spotify.com/album/61HNjlq8uai558D8FWfCFB" target="_blank" rel="noopener">Spotify</a>
+        </div>
+      </div>
+      <p class="album-blurb">Seventeen tracks they couldn&#x27;t put on television. Home of Chains in the Constitution, Still We Rise, and Oscarville.</p>
+      <div class="songs"><div class="song"><span class="song-name">Chains in the Constitution <span class="fav">Fan Favorite</span></span><a class="buy" href="https://moxietide.gumroad.com/l/imkqge" target="_blank" rel="noopener">Buy $1.49</a></div><div class="song"><span class="song-name">Still We Rise <span class="fav">Fan Favorite</span></span><a class="buy" href="https://moxietide.gumroad.com/l/aoqjkt" target="_blank" rel="noopener">Buy $1.49</a></div><div class="song"><span class="song-name">Oscarville <span class="fav">Fan Favorite</span></span><a class="buy" href="https://moxietide.gumroad.com/l/rdewj" target="_blank" rel="noopener">Buy $1.49</a></div><div class="song"><span class="song-name">Intro: Hood Scholar</span><a class="buy" href="https://moxietide.gumroad.com/l/cnjhs" target="_blank" rel="noopener">Buy $1.29</a></div><div class="song"><span class="song-name">Graduated Gladiators</span><a class="buy" href="https://moxietide.gumroad.com/l/fqyuee" target="_blank" rel="noopener">Buy $1.29</a></div><div class="song"><span class="song-name">Too Much</span><a class="buy" href="https://moxietide.gumroad.com/l/mrmtg" target="_blank" rel="noopener">Buy $1.29</a></div><div class="song"><span class="song-name">Flames Hit</span><a class="buy" href="https://moxietide.gumroad.com/l/nnizm" target="_blank" rel="noopener">Buy $1.29</a></div><div class="song"><span class="song-name">Against All Odds</span><a class="buy" href="https://moxietide.gumroad.com/l/kakqr" target="_blank" rel="noopener">Buy $1.29</a></div><div class="song"><span class="song-name">Ashes and Silence</span><a class="buy" href="https://moxietide.gumroad.com/l/szxjct" target="_blank" rel="noopener">Buy $1.29</a></div><div class="song"><span class="song-name">Bold in the Code</span><a class="buy" href="https://moxietide.gumroad.com/l/gzyhf" target="_blank" rel="noopener">Buy $1.29</a></div><div class="song"><span class="song-name">Pan-Black American</span><a class="buy" href="https://moxietide.gumroad.com/l/gibxf" target="_blank" rel="noopener">Buy $1.29</a></div><div class="song"><span class="song-name">Banned Blocked and Blessed</span><a class="buy" href="https://moxietide.gumroad.com/l/dtivdq" target="_blank" rel="noopener">Buy $1.29</a></div><div class="song"><span class="song-name">Bloodline Billionaire</span><a class="buy" href="https://moxietide.gumroad.com/l/cxyqnb" target="_blank" rel="noopener">Buy $1.29</a></div><div class="song"><span class="song-name">Master&#x27;s Voice</span><a class="buy" href="https://moxietide.gumroad.com/l/huqqv" target="_blank" rel="noopener">Buy $1.29</a></div><div class="song"><span class="song-name">Too Much For TV</span><a class="buy" href="https://moxietide.gumroad.com/l/bcpnqy" target="_blank" rel="noopener">Buy $1.29</a></div><div class="song"><span class="song-name">Crypto Crossroads</span><a class="buy" href="https://moxietide.gumroad.com/l/tzwntn" target="_blank" rel="noopener">Buy $1.29</a></div><div class="song"><span class="song-name">Back to Dad (Remix)</span><a class="buy" href="https://moxietide.gumroad.com/l/zhlhpu" target="_blank" rel="noopener">Buy $1.29</a></div></div>
+    </article>
+
+    <article class="album">
+      <div class="album-head">
+        <div>
+          <h3>Too Much Is Enough</h3>
+          <p class="album-meta">2026 &middot; 18 tracks</p>
+        </div>
+        <div class="album-actions">
+          <a class="btn gold" href="https://moxietide.gumroad.com/l/gaumza" target="_blank" rel="noopener">Full Album $10</a>
+          <a class="btn ghost" href="https://open.spotify.com/album/5MpaI3PpsPZvQ74MYEAJ0B" target="_blank" rel="noopener">Spotify</a>
+        </div>
+      </div>
+      <p class="album-blurb">Eighteen tracks. The sound of a man who has seen enough — and decided enough is a beginning, not an end.</p>
+      <div class="songs"><div class="song"><span class="song-name">Good Morning Black America <span class="fav">Fan Favorite</span></span><a class="buy" href="https://moxietide.gumroad.com/l/kgtkj" target="_blank" rel="noopener">Buy $1.49</a></div><div class="song"><span class="song-name">Look Up Now</span><a class="buy" href="https://moxietide.gumroad.com/l/ruzaiu" target="_blank" rel="noopener">Buy $1.29</a></div><div class="song"><span class="song-name">No Peace Just Noise</span><a class="buy" href="https://moxietide.gumroad.com/l/bslawq" target="_blank" rel="noopener">Buy $1.29</a></div><div class="song"><span class="song-name">Too Much Is Enough</span><a class="buy" href="https://moxietide.gumroad.com/l/echnzp" target="_blank" rel="noopener">Buy $1.29</a></div><div class="song"><span class="song-name">Young Master Too Much</span><a class="buy" href="https://moxietide.gumroad.com/l/vpzuub" target="_blank" rel="noopener">Buy $1.29</a></div><div class="song"><span class="song-name">Black Culture Copper Skin</span><a class="buy" href="https://moxietide.gumroad.com/l/ackeas" target="_blank" rel="noopener">Buy $1.29</a></div><div class="song"><span class="song-name">We Ready (Soul Check)</span><a class="buy" href="https://moxietide.gumroad.com/l/qcosh" target="_blank" rel="noopener">Buy $1.29</a></div><div class="song"><span class="song-name">Call Ice Ice Ice</span><a class="buy" href="https://moxietide.gumroad.com/l/fmekw" target="_blank" rel="noopener">Buy $1.29</a></div><div class="song"><span class="song-name">Hi Hur Hak</span><a class="buy" href="https://moxietide.gumroad.com/l/nykjqh" target="_blank" rel="noopener">Buy $1.29</a></div><div class="song"><span class="song-name">Bigger Than The Coast</span><a class="buy" href="https://moxietide.gumroad.com/l/idyxsf" target="_blank" rel="noopener">Buy $1.29</a></div><div class="song"><span class="song-name">Black Mirror Foreign Lens</span><a class="buy" href="https://moxietide.gumroad.com/l/eiqblm" target="_blank" rel="noopener">Buy $1.29</a></div><div class="song"><span class="song-name">Scapegoat (The Sound of Freedom)</span><a class="buy" href="https://moxietide.gumroad.com/l/niouis" target="_blank" rel="noopener">Buy $1.29</a></div><div class="song"><span class="song-name">Melchizedek</span><a class="buy" href="https://moxietide.gumroad.com/l/ltoblf" target="_blank" rel="noopener">Buy $1.29</a></div><div class="song"><span class="song-name">Reclassified</span><a class="buy" href="https://moxietide.gumroad.com/l/pwwku" target="_blank" rel="noopener">Buy $1.29</a></div><div class="song"><span class="song-name">FBA (Dangerous)</span><a class="buy" href="https://moxietide.gumroad.com/l/evioql" target="_blank" rel="noopener">Buy $1.29</a></div><div class="song"><span class="song-name">No More Leaders (Only Code)</span><a class="buy" href="https://moxietide.gumroad.com/l/cbxrgx" target="_blank" rel="noopener">Buy $1.29</a></div><div class="song"><span class="song-name">The Notorious They</span><a class="buy" href="https://moxietide.gumroad.com/l/ldjijw" target="_blank" rel="noopener">Buy $1.29</a></div><div class="song"><span class="song-name">Set Up and Payoff</span><a class="buy" href="https://moxietide.gumroad.com/l/jfpuxx" target="_blank" rel="noopener">Buy $1.29</a></div></div>
+    </article>
+    <p style="text-align:center"><a class="btn ghost" href="https://moxietide.gumroad.com" target="_blank" rel="noopener">Browse the Full Store</a>
+    &nbsp;<a class="btn ghost" href="https://open.spotify.com/artist/0RKNhcXKryESgMu97hk7jH" target="_blank" rel="noopener">Tooo Much Moxie on Spotify</a></p>
+  </section>
+
+  <section id="messiah">
+    <h2>Coming 2027 — The Black Messiah</h2>
+    <div class="messiah">
+      <p class="pitch">An awakening, not a person.</p>
+      <p>Nine tracks. A bloodline wakes up, looks in the mirror, and finds the kingdom was in the people all along. &ldquo;Kingdom in the People&rdquo; is the thesis — the rest is the journey there.</p>
+      <div class="countdowns">
+        <div class="cd"><div class="cd-label">Single 1</div><div class="cd-title">Bloodline Awakening</div><div class="cd-days" data-countdown="2027-01-15T00:00:00-08:00">—</div><div class="cd-date">Fri, Jan 15, 2027</div></div>
+        <div class="cd"><div class="cd-label">Single 2</div><div class="cd-title">Kingdom in the People</div><div class="cd-days" data-countdown="2027-02-12T00:00:00-08:00">—</div><div class="cd-date">Fri, Feb 12, 2027</div></div>
+        <div class="cd"><div class="cd-label">The Album</div><div class="cd-title">The Black Messiah</div><div class="cd-days" data-countdown="2027-03-12T00:00:00-08:00">—</div><div class="cd-date">Fri, Mar 12, 2027</div></div>
+      </div>
+      <div class="songs"><div class="song"><span class="song-name">1. Bloodline Awakening</span></div>
+<div class="song"><span class="song-name">2. Voices in the Marrow</span></div>
+<div class="song"><span class="song-name">3. The Inheritance of Chains</span></div>
+<div class="song"><span class="song-name">4. Judgment in the Mirror</span></div>
+<div class="song"><span class="song-name">5. Throne of the Oppressed</span></div>
+<div class="song"><span class="song-name">6. The Black Messiah</span></div>
+<div class="song"><span class="song-name">7. Kingdom in the People</span></div>
+<div class="song"><span class="song-name">8. Grace under Fire</span></div>
+<div class="song"><span class="song-name">9. The Morning We Became</span></div></div>
+    </div>
+  </section>
+
+  <section id="playlists">
+    <h2>Playlists &amp; More Music</h2>
+    <div class="linkcards">
+      <div class="linkcard"><h3>Spotify</h3><p>The full catalog, streaming. Follow the artist page so the new singles find you first.</p><a class="btn gold" href="https://open.spotify.com/artist/0RKNhcXKryESgMu97hk7jH" target="_blank" rel="noopener">Open Spotify</a></div>
+      <div class="linkcard"><h3>Suno</h3><p>Where the songs are born — playlists, works in progress, and the vault.</p><a class="btn gold" href="https://suno.com/@tooomuchmoxie" target="_blank" rel="noopener">Open Suno</a></div>
+      <div class="linkcard"><h3>Beacons</h3><p>Every link in one place — music, store, and the Founding Listeners signup.</p><a class="btn gold" href="https://beacons.ai/tooomuchmoxie/tooomuchmoxiemusic" target="_blank" rel="noopener">Open Beacons</a></div>
+    </div>
+  </section>
+
+  <section id="join">
+    <div class="join">
+      <h2>Join the Founding Listeners</h2>
+      <p>First to hear the singles, first to see the videos, first in line when the merch drops. One email list, no spam — just the music and the movement.</p>
+      <a class="btn gold" href="https://beacons.ai/tooomuchmoxie/tooomuchmoxiemusic" target="_blank" rel="noopener">Join the List</a>
+    </div>
+  </section>
+</main>
+<footer>
+  <div class="socials">
+    <a href="https://www.youtube.com/channel/UCeSMZ3FCAj6o779u-AHVpQg" target="_blank" rel="noopener">YouTube</a>
+    <a href="https://www.instagram.com/tooomuchmoxie" target="_blank" rel="noopener">Instagram</a>
+    <a href="https://www.tiktok.com/@tooo_much_moxie" target="_blank" rel="noopener">TikTok</a>
+    <a href="https://open.spotify.com/artist/0RKNhcXKryESgMu97hk7jH" target="_blank" rel="noopener">Spotify</a>
+    <a href="https://moxietide.gumroad.com" target="_blank" rel="noopener">Store</a>
+  </div>
+  <p>&copy; 2026 Tooo Much Moxie. All rights reserved. All music written and owned by Tooo Much Moxie.</p>
+</footer>
+<script>
+function updateCountdowns() {
+  var now = new Date();
+  document.querySelectorAll("[data-countdown]").forEach(function (el) {
+    var target = new Date(el.getAttribute("data-countdown"));
+    var diff = target - now;
+    if (diff <= 0) { el.textContent = "OUT NOW"; return; }
+    var days = Math.floor(diff / 86400000);
+    el.textContent = days + (days === 1 ? " day" : " days");
+  });
+}
+updateCountdowns();
+setInterval(updateCountdowns, 3600000);
+</script>
+</body>
+</html>
